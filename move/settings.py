@@ -32,7 +32,7 @@ SECRET_KEY = 'SECRET_KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://move-mmc.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = ['move-mmc.herokuapp.com/', 'localhost']
 
 
 # Application definition
