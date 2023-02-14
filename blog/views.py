@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Comment, Category
 from .forms import CommentForm
 
 # Create your views here.
@@ -76,3 +76,23 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class CatListView(generic.ListView):
+    template_name = 'category.html'
+    context_object_name = 'catlist'
+
+    def get_queryset(self):
+        content = {
+            'cat' : self.kwargs['category'],
+            'posts' : Post.objects.filter(category__name=self.kwargs['category']).filter(status=1)
+        }
+        return content
+
+
+def category_list(request):
+    category_list = Category.objects.exclude(name='default')
+    context = {
+        'category_list': category_list,
+    }
+    return context
