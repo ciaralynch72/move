@@ -4,31 +4,39 @@
 {% block content %}
 <!--Contact form-->
 <style>
-footer {
-    position: absolute;
-    bottom: 0;
+  #id_message {
     width: 100%;
-    height: 60px; /* Set the fixed height of the footer here */
-    line-height: 60px; /* Vertically center the text there */
   }
-  </style>
+</style>
 
 <div class="container">
-    <div class="row">
-      <div class="col-md-8 mt-3 offset-md-2">
-        <h3>Contact Me</h3>
-  
-        <p>If you are interested in connection about the blog or the podcast please fill out the contact form below mo chara.  
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 mt-3 offset-md-2">
-        <form class="login" method="POST" action="{% url 'account_login' %}">
+  <br>
+  <h1>Get in touch </h1>
+  <br>
+  <p>If you interested in finding out more or a guest apperance on the podcast, fill
+    in the form below!
+  </p>
+  <div class="row">
+    <div class="col-md-4 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <div class="form-group">
+        <form method="POST" action="{% url 'contact' %}">
           {% csrf_token %}
           {{ form.as_p }}
-          <button class="btn btn-dark" type="submit">Submit</button>
+          <button class="btn btn-dark">submit</button>
+
         </form>
       </div>
+       <div class="row"></div>
+        <br><br>
+       
+      </div>
     </div>
+
   </div>
-  {% endblock %}
+  <a href="{% url 'home' %}"class="btn btn-dark">Back</a>
+</div>
+
+{% endblock content %}
+
+  
