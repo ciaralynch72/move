@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .models import Post, Comment, Category
 from .forms import CommentForm, ContactForm
 from django.core.mail import send_mail, BadHeaderError
+from django.contrib import messages
 
 # Create your views here.
 
@@ -117,6 +118,7 @@ def contact(request):
 			except BadHeaderError:
 				return HttpResponse('Invalid header found.')
 			return redirect ('home')
+            
       
 	form = ContactForm()
 	return render(request, "contact.html", {'form':form})
