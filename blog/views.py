@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, Category
-from .forms import CommentForm
+from .forms import CommentForm, ContactForm
+from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
 
@@ -96,3 +97,26 @@ def category_list(request):
         'category_list': category_list,
     }
     return context
+
+
+def contact(request):
+	if request.method == 'POST':
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			subject = "Website Inquiry" 
+			body = {
+			'first_name': form.cleaned_data['first_name'], 
+			'last_name': form.cleaned_data['last_name'], 
+			'email': form.cleaned_data['email_address'], 
+			'message':form.cleaned_data['message'], 
+			}
+			message = "\n".join(body.values())
+
+			try:
+				send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
+			except BadHeaderError:
+				return HttpResponse('Invalid header found.')
+			return redirect ('home')
+      
+	form = ContactForm()
+	return render(request, "contact.html", {'form':form})
