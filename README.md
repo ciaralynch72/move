@@ -90,7 +90,6 @@ The great thing about using personal photos is that it relatable to the audience
 ### Wireframes <a name="wireframes"></a>
 
 
-### Database <a name="database"></a>
 
 ## Agile Methodology
 
