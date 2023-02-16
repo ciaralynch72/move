@@ -57,12 +57,12 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow" id="mainNav">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
@@ -81,6 +81,21 @@
                     {% endif %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"
+                        href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+                        <div class="dropdown-menu">                      
+                            <a class="dropdown-item" href="{% url 'about' %}">
+                               About Me
+                            </a>
+                            <a class="dropdown-item" href="{% url 'contact' %}">
+                                Contact Me
+                            </a>
+                            <a class="dropdown-item" href="https://open.spotify.com/show/3vz3lMbS63UUXyUPaM54b2" target="_blank">
+                                Podcast
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"
                         href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
                         <div class="dropdown-menu">
                           {% for category in category_list %}
@@ -90,7 +105,11 @@
                           {% endfor %}
                         </div>
                     </li>
+
                 </ul>
+                <span class="navbar-text text-muted">
+                    <span class="brand">Move Mo Chara Blog </span></a>
+                </span>
             </div>
         </div>
     </nav>
@@ -115,7 +134,7 @@
             <div class="container">
               <span class="text-center text-light">
                 <h2>Move Mo Chara</h2>
-                <p>Made with Movement</p>
+                <p> Nothing Happens Until Something Moves</p>
                 <div class="social">
                     <h4>Follow Us</h4>
                     <!-- Facebook -->
