@@ -1,12 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 {% load crispy_forms_tags %}
-<style>
-    p {
-        font-family: Lato, sans-serif;
-    }
-    
-    </style>
+
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
@@ -120,7 +115,9 @@
             
         </div>
     </div>
+    <div>
     <a href="{% url 'home' %}" class="btn btn-dark">Back</a>
+    </div>
 </div>
 
 {% endblock content %}
