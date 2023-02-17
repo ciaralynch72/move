@@ -16,7 +16,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img height="300px" class="d-block w-100" src="https://res.cloudinary.com/deokcf057/image/upload/v1676500029/background_hslkey.jpg" alt="First slide">
+                    <img height="300" class="d-block w-100" src="https://res.cloudinary.com/deokcf057/image/upload/v1676500029/background_hslkey.jpg" alt="First slide">
                     <div class="carousel-caption .d-block">
                         <h4>Welcome Move Mo Chara Blog</h4>
                         <br>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img height="300px" class="d-block w-100" src="https://res.cloudinary.com/deokcf057/image/upload/v1676500029/background_hslkey.jpg" alt="Second slide">
+                    <img height="300" class="d-block w-100" src="https://res.cloudinary.com/deokcf057/image/upload/v1676500029/background_hslkey.jpg" alt="Second slide">
                     <div class="carousel-caption .d-block">
                         <h4>Have a story to share or want to find out more?</h4>
                         <br>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img height="300px" class="d-block w-100" src="https://res.cloudinary.com/deokcf057/image/upload/v1676500029/background_hslkey.jpg" alt="Third slide">
+                    <img height="300" class="d-block w-100" src="https://res.cloudinary.com/deokcf057/image/upload/v1676500029/background_hslkey.jpg" alt="Third slide">
                     <div class="carousel-caption .d-block">
                         <h4>Check out the Move Mo Chara Podcast on spotify! </h4>
                         <br>
@@ -71,6 +71,7 @@
                             <h2 class="card-title"> {{ post.title }}</h2>
                             <p class="card-text text-muted h6"> {{ post.author }} | {{ post.created_on}} </p>
                             <p class="card-text">{{ post.excerpt }}</p>
+                            <div class="text-secondary">{{ post.number_of_likes }} <i class="fas fa-heart"></i></div>
                             <a href="{% url 'post_detail' post.slug  %}" class="btn btn-dark">Read More &rarr;</a>
                         </div>
                     </div>

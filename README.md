@@ -1,6 +1,6 @@
 # **Move Mo Chara Blog**
 
-![Move Mo Chara Blog](https://move-mmc.herokuapp.com/)
+[Move Mo Chara Blog](https://move-mmc.herokuapp.com/)
 
 Move Mo Chara Blog was created to help be a hub for my friend Carly's passion project, Move Mo Chara Podcast. Move Mo Chara came about because Carly is passionate about movement in all forms and she has a natuaral ability to be able to hold the audience captive thoughout the interview. The podcast is more focused on the movement of body, however, Carly has a natural curiostiy about movement in all shapes and forms from moving abroad, careers and travel and most of all, challenging herself to move out of her comfort zone. I wanted to help my friend create a hub where she can experss herself to expand beyond the podcast and blog her adventures to her audience. 
 
@@ -64,10 +64,9 @@ To achieve the strategy goals create for the site, I wanted to implement the fol
 
 The Agile Methodology was used to plan this project. This was implemented through Github and developed throughout the project. 
 
-Through the use of the Kanban board in the projects view in Github, the project was divided into a few different sections:
+Through the use of the Kanban board in the projects view in Github, the project was divided into a few different sections - To Do, In Progress and Done. 
 
-
-Github issues were used to create User Stories for the project. This is where the project user was assigned; labels were added to show at a glance importance of tasks and help prioritize jobs. User story was added to the appropriate Iteration and the project.
+Github issues were used to create User Stories for the project. This is where the project user was assigned; labels were added to show at a glance importance of tasks and help prioritize jobs. User story was added to the appropriate Iteration and the project [Kanban Board](https://github.com/users/ciaralynch72/projects/4/views/1).
 
 ## Structure
 
@@ -173,18 +172,18 @@ The login, sign up, logout and comment forms were all part of djangos batteries 
 The sing up page was not responsive so I did place that in a card to make it responsive. 
 [Sign Up Page](assets/readme_images/signup.JPG)
 
-- ### Alert Messages
+- #### Alert Messages
 Alert messages are used to let members know when they have logged in, out and submitted a comment form. 
 
-- ### About Me Page
+- #### About Me Page
 I created the about me page so that the user could get to know Carly and her reasons for starting a blog. It carries across similar styles to 
 the blog post page. 
 
-- ### Contact Me Page
+- #### Contact Me Page
 I created the contact me page as a way for the user to get in contact with Carly. It is styled the same as  When submitted the user will be taken back to the home page. I simply
 ran out of time to set it up so that a success message will come through and that I could view it in the backend. 
 
-- ## Admin Page 
+- #### Admin Page 
 The admin page can be accessed using /admin after the url https://move-mmc.herokuapp.com and it is an awesome feature of Django that I found worked great for a site like 
 this where the owner is the sole writer of posts. 
 
@@ -202,7 +201,10 @@ Expand the Categories that users can search
 - ### Back Button
 Have the back button go the the previous page
 
-# Technologies Used <a name="tech-used"></a>
+- ### General Improvement
+I look forward to developing my skills and learning more about django to improve this site for my friend. 
+
+# Technologies Used
 
 For this project the main languages used are __HTML5__, __CSS3__, __JavaScript__, __Python__, __Django__ and __Heroku Postgres__.
 
@@ -241,26 +243,118 @@ I have also utilised the following frameworks, libraries, and tools:
 * [Python](https://www.python.org/): 
     * Various Python modules were used to build this project as detailed below and as seen in the requirements.txt file.
 
+# Testing
+
+## Validation
+
+### Html Validation
+
+Html validation was done with [https://validator.w3.org/nu/](https://validator.w3.org/nu/). I had to test on the final deployed site as 
+the template code for django was causing a lot of errors. The erros that flagged were mostly stray tags, I uses height="300px" in and 
+image tag so I changed it to "300" and that solved it. 
+
+### Python Validation
+
+Python code was validated using [Code institues Python validator](https://pep8ci.herokuapp.com/#)
+
+Only minor errors such as missing blank spacing or whitespace. These were rectified easily and no errors remained. 
+
+
+### Lighthouse Testing
+
+[Lighthouse testing](assets/readme_images/lighthouse.JPG)
 
 
 
+## Manual Testing
+
+In addition to the other tests, I have conducted a manual check list for myself to carry out to make sure that everything is working as intended.
+
+| Status | **Navigation Bar - User Logged Out**
+|:-------:|:--------|
+| &check; | Clicking the navbar home button loads the home page
+| &check; | The navbar shows the tabs Home, Register, Login, About and Categories tabs
+| &check; | Clicking the Home tab on the navbar loads the home page
+| &check; | Clicking the Register tab on the navbar loads the sign up page
+| &check; | Clicking the Login tab on the navbar loads the login page
+| &check; | Clicking the About tab on the navbar drops down the About Me, Contact and Podcast links
+| &check; | Clicking the Categories tab on the navbar loads the Podcast, Travel and Movement links 
+
+| Status | **Navigation Bar - User Logged In**
+|:-------:|:--------|
+| &check; | Clicking the navbar home button loads the home page
+| &check; | The navbar shows the tabs Home, Logout, About and Categories Page
+| &check; | Clicking the Logout tab on the navbar loads the Logout page
+| &check; | Clicking the About tab on the navbar loads the About Me, Contact and Podcast links and all load
+| &check; | Clicking the categories in the navbar loads the Podcast, Travel and Movement categories and all load
 
 
+| Status | **Footer - User Logged Out/In**
+|:-------:|:--------|
+| &check; | Clicking the instagram icon loads the MMC instagram in a new tab
+| &check; | Clicking the spotigy icon loads MMC spotify page in a new tab
 
 
+| Status | **Home Page**
+|:-------:|:--------|
+| &check; | The carosuel has a slider option than can be changed manually or that changes after 5seconds
+| &check; | Newest blog post is the first visible and all blog post show a photo, excerpt and read more button for the user
+| &check; | If more that six blog posts are created then a next/previous button will show
+| &check; | If a user clicks read more they are brought to the article page
 
 
+| Status | **Article Page**
+|:-------:|:--------|
+| &check; | That the page is the same page that the user clicked on
+| &check; | That the image, title, article, comments and like sections show
+| &check; | That if the user is logged in then they can leave a comment
+| &check; | The user can like a post
+| &check; | The user can click the back button to return home
 
 
+| Status | **Form Pages - Login, logout, signup comment and contact**
+|:-------:|:--------|
+| &check; | That each input field is visible on all screens and are fillable 
+| &check; | When the button is clicked and action is performed
+| &check; | That the username input field is required
+| &check; | That the password input field is required
+| &check; | That if the username does not match the password the user cannot log in and user feedback is provided
+| &check; | That if the correct credentials are given the user is logged in when the log in button is clicked
 
+| Status | **/admin Access**
+|:-------:|:--------|
+| &check; | That when /admin is added to the URL and the admin is logged in that they will have full access to the build in django admin site
+| &check; | Permisison is restricted to only super users
+| &check; | The admin has full CRUD functionality in the admin panel
 
+This website was tested on the following browsers by a number of kind volunteers:
 
+* Google Chrome
+* Safari
+* Mozilla Firefox
 
+This website was also tested on the following devices:
 
+* iPhone 11 Pro
+* iPhone 12 Pro
+* iPad Pro
+* Lenova laptop and 22" screen
+* Samsung A52
 
+## Bugs
+I came across quite a few bugs while creating this project. A lot of them were typing errors, getting my URL paths correct, calling the wrong template, adding modules to installed apps. Alot of them actually helped me get a better understanding of what exactly I am at and they were important learning curves. 
+My newly aquired bootstrap skills also were the fault of some bugs which I was able to rectify for the most part. 
 
+* When I created my categories model and applied it to the navbar, no dropdown appeared. I was able to find the solution by adding data-bs-toggle="dropdown"
+![Categories Fix](assets/readme_images/categories_fix.JPG)
 
+* I had issues creating my blog categories as I got them to show in the admin site but when I figured out how to show them on the site I had changed the names so it
+kept showing errors. I was able to comment out the new category query, go back and delete old categories and start fresh. Not sure if this was the correct way to do this but it worked. 
+![Categories Error](assets/readme_images/category_bug.JPG)
 
+### Known Bugs
+* When you fill out the contact form, it shows in the terminal locally but I ran out of time to add EmailJS and get the alert messages to show. Right now it redirects the user
+back to the main page but it is a poor user experience as they are unsure if there form went through or not. I will fix this for sure once I am done course. 
 
 
 # Deployment
@@ -278,7 +372,7 @@ This project was deployed using Github and Heroku.
         + Add repository name then clicked the green ‘create repository button’ at the bottom of the page.
         + Open the new repository and clicked the green ‘Gitpod’ button to create a workspace in Gitpod for editing.
 
-- ## Django, Elephant SQL and Heroku Heroku
+- ## Django, Elephant SQL and Heroku
 
     To get the Django framework installed and set up I followed the Code institutes [Django I Think Therefore I Blog cheatsheet](https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit). & Revisited the Walkthrough to assist.
     
@@ -303,3 +397,73 @@ This project was deployed using Github and Heroku.
         + Clikced on Download and Zip
         + Clicked on Open with GitHubDesktop
  
+
+
+## Credits
+As you can already tell, I used I think therefore I blog as the basis of this blog site and added and personalized it to my project. The walk through was great and made it so much less daunting. 
+
+- #### Copy
+A collaboration between Carly and I. 
+
+- #### Design
+Design was inspired by Move Mo Chara Logo
+
+- #### Photos
+All photos were used with Carly's permission
+ 
+- #### Online learning resources
+Stackoverflow, YouTube, blogs, and tutorials. I have used the following tutorials as inspiration to create this blog
+[Medium](https://medium.com/geekculture/create-a-blog-with-django-60f529f1d8b6) 
+[Very Academy](https://www.youtube.com/c/veryacademy/playlists) 
+[Codemy](https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi)
+
+- #### Slack
+I used Slack to find alot of questions, read about PP4 common pain points and check out other students projects for inspiration
+
+- #### Mentor
+My mentor Guido Cecilio has taken a break from mentoring but he did post some great resources on his student channel
+
+- #### Cohort Facilitators
+Code Institutes Facilitators were great throughout the project, answering questions and encouraging us to the finish line. They also made it easy to stay on track and keep everyone up to date. Thanks Kenan Wright and Kascia Bogucka.
+
+- #### Cohort Facilitators
+A big thank you to student care who gave me not one but two extensions after having to undergo knee reconstruction and allowing me to have time to heal but also to let me see the couse out. Than you Aoife especially for helping me with the extensions. 
+
+- #### Cohort Students
+Big thanks to my cohort for the positivity and encouragement in the slack group. Knowing everyone was in the same both with the jump in learning in JavaScript made it easier to get through this project. Special shoutout to Laura Maycock for sharing some great resources. 
+
+- #### Code Institute and MSLETB
+Big thank you to Code institute for creating such a great learning platform that gave me the tools and knowledge to create this website and for MSLETB for the opportunity to participate in this course. 
+
+- #### My good friend Carly Mcgrath
+Carls let me use all her content for this project and in return I will be sure to improve her blog once I am finished the course. 
+
+##### Thank You!
+Thank you for taking time review my project. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
