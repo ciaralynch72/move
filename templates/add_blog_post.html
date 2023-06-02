@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <!-- Post title goes in these h1 tags -->
+                <h1 class="post-title">
+                    <br>
+                    Add Post</h1>
+                <!-- Post author goes before the | the post's created date goes after -->
+            </div>
+        </div>
+              
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <br>
+            
+            <div class="row">
+                <div class="col-md-4 card mb-4  mt-3 left  top">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button class="btn btn-dark">Post</button>
+                            </form>
+                        </div>
+                        <div class="row"></div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'home' %}"class="btn btn-dark">Back</a>
+          </div>
+{% endblock %}

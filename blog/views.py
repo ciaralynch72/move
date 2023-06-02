@@ -143,3 +143,9 @@ def contact(request):
 
 def about(request):
     return render(request, 'about.html')
+
+
+class AddPostView(generic.CreateView):
+    model = Post
+    template_name = 'add_blog_post.html'
+    fields = '__all__'
