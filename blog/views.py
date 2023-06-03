@@ -5,6 +5,7 @@ from .models import Post, Comment, Category
 from .forms import CommentForm, ContactForm, PostForm, EditForm
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -157,3 +158,9 @@ class EditPostView(generic.UpdateView):
     model = Post
     form_class = EditForm
     template_name = 'edit_post.html'
+
+
+class DeletePostView(generic.DeleteView):
+    model = Post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('home')
