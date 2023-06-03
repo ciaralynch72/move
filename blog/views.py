@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Post, Comment, Category
-from .forms import CommentForm, ContactForm
+from .forms import CommentForm, ContactForm, PostForm, EditForm
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
 
@@ -146,6 +146,14 @@ def about(request):
 
 
 class AddPostView(generic.CreateView):
+
     model = Post
+    form_class = PostForm
     template_name = 'add_blog_post.html'
-    fields = '__all__'
+
+
+class EditPostView(generic.UpdateView):
+
+    model = Post
+    form_class = EditForm
+    template_name = 'edit_post.html'
