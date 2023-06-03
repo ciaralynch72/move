@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Category
+from .models import Post, Comment, Category, Contact
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -25,3 +25,8 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Category)
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('email', 'subject', 'message')

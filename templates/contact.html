@@ -19,11 +19,11 @@
       <div class="col-md-4 card mb-4  mt-3 left  top">
           <div class="card-body">
               <div class="form-group">
-                  <form method="POST" action="{% url 'contact' %}">
-                      {% csrf_token %}
-                      {{ form.as_p }}
-                      <button class="btn btn-dark">submit</button>
-                  </form>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-dark" type="submit" value="Submit">
+                </form>
               </div>
               <div class="row"></div>
               <br><br>

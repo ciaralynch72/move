@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Post, Comment, Category
-from .forms import CommentForm, ContactForm, PostForm, EditForm
+from .forms import CommentForm, PostForm, EditForm, ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -116,31 +116,40 @@ def category_list(request):
     return context
 
 
+# def contact(request):
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             subject = 'Website Inquiry'
+#             body = {
+#                 'first_name': form.cleaned_data['first_name'],
+#                 'last_name': form.cleaned_data['last_name'],
+#                 'email': form.cleaned_data['email_address'],
+#                 'message': form.cleaned_data['message'],
+#                 }
+#             message = '\n'.join(body.values())
+
+#             try:
+#                 send_mail(subject, message, 'admin@example.com',
+#                           ['admin@example.com'])
+#             except BadHeaderError:
+#                 return HttpResponse('Invalid header found.')
+#                 messages.success(request, "Message sent.")
+#             return redirect('home')
+#             messages.error(request, "Error. Message not sent.")
+
+#     form = ContactForm()
+#     return render(request, 'contact.html', {'form': form})
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = 'Website Inquiry'
-            body = {
-                'first_name': form.cleaned_data['first_name'],
-                'last_name': form.cleaned_data['last_name'],
-                'email': form.cleaned_data['email_address'],
-                'message': form.cleaned_data['message'],
-                }
-            message = '\n'.join(body.values())
-
-            try:
-                send_mail(subject, message, 'admin@example.com',
-                          ['admin@example.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-                messages.success(request, "Message sent.")
-            return redirect('home')
-            messages.error(request, "Error. Message not sent.")
-
+            form.save()
+            return render(request, 'success.html')
     form = ContactForm()
-    return render(request, 'contact.html', {'form': form})
-
+    context = {'form': form}
+    return render(request, 'contact.html', context)
 
 def about(request):
     return render(request, 'about.html')

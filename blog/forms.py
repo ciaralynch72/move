@@ -1,4 +1,4 @@
-from .models import Comment, Post
+from .models import Comment, Post, Contact
 from django import forms
 
 
@@ -45,3 +45,8 @@ class EditForm(forms.ModelForm):
 			'excerpt': forms.Textarea(attrs={'class': 'form-control'}),			
 			'content': forms.Textarea(attrs={'class': 'form-control'}),			
 		}
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = '__all__'
