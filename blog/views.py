@@ -8,8 +8,6 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 
 
-# Create your views here.
-
 class PostList(generic.ListView):
 
     model = Post
@@ -26,7 +24,8 @@ class PostDetail(View):
         slug,
         *args,
         **kwargs
-        ):
+         ):
+
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = \
@@ -49,7 +48,7 @@ class PostDetail(View):
         slug,
         *args,
         **kwargs
-        ):
+          ):
 
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -86,7 +85,7 @@ class PostLike(View):
         slug,
         *args,
         **kwargs
-        ):
+         ):
         post = get_object_or_404(Post, slug=slug)
 
         if post.likes.filter(id=request.user.id).exists():
@@ -105,8 +104,7 @@ class CatListView(generic.ListView):
     def get_queryset(self):
         content = {'cat': self.kwargs['category'],
                    'posts': Post.objects.filter(category__name=self.kwargs
-                   ['category'
-                   ]).filter(status=1)}
+                                                ['category']).filter(status=1)}
         return content
 
 
@@ -115,31 +113,6 @@ def category_list(request):
     context = {'category_list': category_list}
     return context
 
-
-# def contact(request):
-#     if request.method == 'POST':
-#         form = ContactForm(request.POST)
-#         if form.is_valid():
-#             subject = 'Website Inquiry'
-#             body = {
-#                 'first_name': form.cleaned_data['first_name'],
-#                 'last_name': form.cleaned_data['last_name'],
-#                 'email': form.cleaned_data['email_address'],
-#                 'message': form.cleaned_data['message'],
-#                 }
-#             message = '\n'.join(body.values())
-
-#             try:
-#                 send_mail(subject, message, 'admin@example.com',
-#                           ['admin@example.com'])
-#             except BadHeaderError:
-#                 return HttpResponse('Invalid header found.')
-#                 messages.success(request, "Message sent.")
-#             return redirect('home')
-#             messages.error(request, "Error. Message not sent.")
-
-#     form = ContactForm()
-#     return render(request, 'contact.html', {'form': form})
 
 def contact(request):
     if request.method == 'POST':
@@ -150,6 +123,7 @@ def contact(request):
     form = ContactForm()
     context = {'form': form}
     return render(request, 'contact.html', context)
+
 
 def about(request):
     return render(request, 'about.html')

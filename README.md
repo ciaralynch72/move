@@ -53,11 +53,14 @@ To achieve the strategy goals create for the site, I wanted to implement the fol
 * A Login page for existing users to access their account to allow to like and add comments.
 * A Register/Signup page to allow new users to create an account.
 * A Blog post page to view the selected post in more detail for the recipes and add comments/like the post.
-* A Footer located at the bottom of the website which allows the user to access social media links.
-* A fully responsive design that will work on different devices including desktop, tablets, and mobile devices, allowing users to access the site anytime and anywhere.
-* An Error 404 Page to allow users to redirect back to Home page in case of any errors.
-* A Contact oage to allow users to leave any feedback or queries.
-* Full CRUD functionality for Admin to allow to create, read, update and delete posts.
+* A Add Post page if you are a superuser 
+* The ability to edit a post if you are a superuser 
+* The ability to delete a post if you are a superuser 
+* A Contact Me page so that a site visitor can contact admin and send a message
+* A Footer located at the bottom of the website which allows the user to access social media links
+* A fully responsive design that will work on different devices including desktop, tablets, and mobile devices, allowing users to access the site anytime and anywhere
+* A Contact page to allow users to leave any feedback or queries
+* Full CRUD functionality for Admin to allow to create, read, update and delete posts
 
 
 ### Agile Methodology
@@ -89,7 +92,7 @@ and out or submit comments or get in touch. I built the blog from mobile first a
 
 ### Database modal
 
-The database model is simple and follows along the basis of the I think therefore I blog database structure. There is user, blogpost, comments and category sections that are used to create the information on the site. The category model was created so that readers could go to posts that they have interest in or two see what is simlar to what they have already read. 
+The database model is simple and follows along the basis of the I think therefore I blog database structure. There is user, blogpost, comments, contact and category sections that are used to create the information on the site. The category model was created so that readers could go to posts that they have interest in or two see what is simlar to what they have already read. The contact model was created to all the user to send a message to the site admin.
 
 ![Database Structure](assets/readme_images/database_structure.JPG)
 
@@ -141,6 +144,12 @@ The next container is the main section of the home page containing a maximum of 
 - #### Read More button
 The read more allows the user to view the entire article of a blog post after reading he excerpt. 
 
+- #### Edit Post button
+The edit button appears to users that are authenticated so that they can select to edit a post from the main page. 
+
+- #### Delete Post button
+The delete button appears to users that are authenticated on the edit post page so that they can choose to delete that post.
+
 [Blog post view website](assets/readme_images/blog_posts.JPG)
 
 - #### Next/Previous Button ####
@@ -180,17 +189,9 @@ I created the about me page so that the user could get to know Carly and her rea
 the blog post page. 
 
 - #### Contact Me Page
-I created the contact me page as a way for the user to get in contact with Carly. It is styled the same as  When submitted the user will be taken back to the home page. I simply
-ran out of time to set it up so that a success message will come through and that I could view it in the backend. 
-
-- #### Admin Page 
-The admin page can be accessed using /admin after the url https://move-mmc.herokuapp.com and it is an awesome feature of Django that I found worked great for a site like 
-this where the owner is the sole writer of posts. 
+The contact me page was created so that the user can submit a message to admin with a thank you message after successful completion
 
 - ## Future Features
-
-- ### Contact Me Form
-Wire it up correctly so that the user gets a message and the owner receives the email 
 
 - ### Social Sign In
 Allow users to sign in using their social accounts
@@ -250,7 +251,7 @@ I have also utilised the following frameworks, libraries, and tools:
 ### Html Validation
 
 Html validation was done with [https://validator.w3.org/nu/](https://validator.w3.org/nu/). I had to test on the final deployed site as 
-the template code for django was causing a lot of errors. The erros that flagged were mostly stray tags, I uses height="300px" in and 
+the template code for django was causing a lot of errors. The errors that flagged were mostly stray tags, I uses height="300px" in and 
 image tag so I changed it to "300" and that solved it. 
 
 ### Python Validation
