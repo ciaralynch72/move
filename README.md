@@ -19,7 +19,7 @@ To expand Move Mo Chara podcast into a lifestyle blog where Carly can share more
 * __Site User Goals:__
 
   * As a Site user I can view the blog posts
-  * As a Site user I can select a blod to "read more"
+  * As a Site user I can select a button to "read more"
   * As a Site User I can register an account so that I can comment and like
   * As a Site User I can interact with the content once logged in by liking or commenting on a post
   * As a Site User I can leave comments on a post so that I can be involved in the conversation posted
@@ -41,6 +41,7 @@ To expand Move Mo Chara podcast into a lifestyle blog where Carly can share more
   * As a Site Admin I can prevent unauthorised users from having access so that they cannot access admin content or other users' profiles
   * As a Site admin I can add categories for visitors to search posts of interest to them
   * As a Site admin I can approve comments 
+  * As a Site admin I can see messages left by site visitors and respond accordingly
 
 
 ## Scope 
@@ -128,9 +129,14 @@ A basic header with the name of the blog and the containing the navigation. The 
 It is reponsive across all device widths.
 
 - #### Navigation ####
-A responsive navigation bar that easily allows the user to navigate the site on mobile, table and website. There are drop down buttons which are grouped together. One drop down for 'About Me' section and one drop down for the 'Categories' section. The was created using bootstrap respnsive navbars so on smaller devices it becomes a burger menu. 
+A responsive navigation bar that easily allows the user to navigate the site on mobile, tablet and website. There are drop down buttons which are grouped together. One drop down for 'About Me' section and one drop down for the 'Categories' section. The was created using bootstrap respnsive navbars so on smaller devices it becomes a burger menu. 
 
-![Header and Nav](assets/readme_images/nav_header.JPG)
+If the user is logged in and a super user then navbar will change from Account to Admin to give them access to admin rights. If the user is 
+
+![Header and Nav](assets/readme_images/nav_header_about.JPG)
+![Header and Nav](assets/readme_images/nav_header_admin.JPG)
+![Header and Nav](assets/readme_images/nav_header_categories.JPG)
+![Header and Nav](assets/readme_images/nav_header_login.JPG)
 
 - #### Carousel ####
 There is a carosel that have arrows to slide foward our back. There is three slides all on a green background. The idea was to use photos but I found the main page busy
@@ -139,7 +145,12 @@ and like the solid green as a break point. Each slide has a button related to th
 ![Carousel](assets/readme_images/carousel.JPG)
 
 - #### Main Page with blog posts  ####
-The next container is the main section of the home page containing a maximum of six blog posts with photos, dates, excerpts and a read more button for the user to select a blog post to read.  
+The next container is the main section of the home page containing a maximum of six blog posts with photos, dates, excerpts and a read more button for the user to select a blog post to read. 
+![Home Page](assets/readme_images/home_page.JPG) 
+
+- #### Admin - Add Post
+If you are a superuser then upon login you will see a dropdown under the admin section which has an add post option so that the admin can add a post directly too the site from their account.
+![Add Post](assets/readme_images/add_post.JPG) 
 
 - #### Read More button
 The read more allows the user to view the entire article of a blog post after reading he excerpt. 
@@ -147,10 +158,13 @@ The read more allows the user to view the entire article of a blog post after re
 - #### Edit Post button
 The edit button appears to users that are authenticated so that they can select to edit a post from the main page. 
 
+![Edit/Read More Button](assets/readme_images/edit_read_buttons.JPG) 
+
+
 - #### Delete Post button
 The delete button appears to users that are authenticated on the edit post page so that they can choose to delete that post.
 
-[Blog post view website](assets/readme_images/blog_posts.JPG)
+![Delete Button](assets/readme_images/delete_post.JPG)
 
 - #### Next/Previous Button ####
 On mobile, tablet and web the main page shows six blog posts and then it will go to a new page. There was pagination added for the user to easlily be able to go back and forth between the pages. 
@@ -274,16 +288,19 @@ In addition to the other tests, I have conducted a manual check list for myself 
 | Status | **Navigation Bar - User Logged Out**
 |:-------:|:--------|
 | &check; | Clicking the navbar home button loads the home page
-| &check; | The navbar shows the tabs Home, Register, Login, About and Categories tabs
+| &check; | The navbar shows the dropdown menus of Account, About and Categories
 | &check; | Clicking the Home tab on the navbar loads the home page
+| &check; | Clicking the Account dropdown on the navbar shows Sign In and Register options
+| &check; | Clicking the Sign tab on the navbar loads the login page
 | &check; | Clicking the Register tab on the navbar loads the sign up page
-| &check; | Clicking the Login tab on the navbar loads the login page
 | &check; | Clicking the About tab on the navbar drops down the About Me, Contact and Podcast links
 | &check; | Clicking the Categories tab on the navbar loads the Podcast, Travel and Movement links 
 
 | Status | **Navigation Bar - User Logged In**
 |:-------:|:--------|
 | &check; | Clicking the navbar home button loads the home page
+| &check; | If a superuser is logged in then they will get an Admin Tab showing. Clicking it drops down a Add Post Page
+| &check; | Clicking Add Post tab loads the add post page
 | &check; | The navbar shows the tabs Home, Logout, About and Categories Page
 | &check; | Clicking the Logout tab on the navbar loads the Logout page
 | &check; | Clicking the About tab on the navbar loads the About Me, Contact and Podcast links and all load
@@ -298,13 +315,13 @@ In addition to the other tests, I have conducted a manual check list for myself 
 
 | Status | **Home Page**
 |:-------:|:--------|
-| &check; | The carosuel has a slider option than can be changed manually or that changes after 5seconds
+| &check; | The carosuel has a slider option than can be changed manually or that changes after 5seconds. Clicking the button on the current slide will bring you to the assosiated page
 | &check; | Newest blog post is the first visible and all blog post show a photo, excerpt and read more button for the user
 | &check; | If more that six blog posts are created then a next/previous button will show
 | &check; | If a user clicks read more they are brought to the article page
+| &check; | If a superuser is logged in they will get the added option of edit post from the home page and will be brought to the edit post page
 
-
-| Status | **Article Page**
+| Status | **Blog Post Page**
 |:-------:|:--------|
 | &check; | That the page is the same page that the user clicked on
 | &check; | That the image, title, article, comments and like sections show
@@ -312,21 +329,35 @@ In addition to the other tests, I have conducted a manual check list for myself 
 | &check; | The user can like a post
 | &check; | The user can click the back button to return home
 
+| Status | **Add Post Page**
+|:-------:|:--------|
+| &check; | Superusers will have the option to add a new post from the navbar once they login
+| &check; | Clicking add post from the navbar opens the add post page
+| &check; | If fields for the add post form are manatory then the user cannot select post until they are filled out
+| &check; | Once post is selected the user will be brought to the new article
 
-| Status | **Form Pages - Login, logout, signup comment and contact**
+| Status | **Edit Post Page**
+|:-------:|:--------|
+| &check; | Superusers will have the option to edit a post from the home page once they login
+| &check; | Clicking edit post will bring the user to the edit post page
+| &check; | User has the choice to update or delete the post from this page
+| &check; | Clicking Update post will update the content of the post
+| &check; | Clicking Delete post will delete the content of the post and bring the user back to the home page
+
+| Status | **Form Pages - Login, logout, signup**
 |:-------:|:--------|
 | &check; | That each input field is visible on all screens and are fillable 
-| &check; | When the button is clicked and action is performed
+| &check; | When the button is clicked the action is performed
 | &check; | That the username input field is required
 | &check; | That the password input field is required
 | &check; | That if the username does not match the password the user cannot log in and user feedback is provided
 | &check; | That if the correct credentials are given the user is logged in when the log in button is clicked
 
-| Status | **/admin Access**
+| Status | **Contact Me Page - contact me and thank you pages**
 |:-------:|:--------|
-| &check; | That when /admin is added to the URL and the admin is logged in that they will have full access to the build in django admin site
-| &check; | Permisison is restricted to only super users
-| &check; | The admin has full CRUD functionality in the admin panel
+| &check; | The user is brought to the contact me page if they select it in the dropdown menu
+| &check; | The user can fill out the form and once vaild they can hit submit and the admin can view it on the backend of the admin site
+| &check; | TThe user can click submit and they will be brought too a thank you page and from here can navigate to the home page
 
 This website was tested on the following browsers by a number of kind volunteers:
 
@@ -352,11 +383,6 @@ My newly aquired bootstrap skills also were the fault of some bugs which I was a
 * I had issues creating my blog categories as I got them to show in the admin site but when I figured out how to show them on the site I had changed the names so it
 kept showing errors. I was able to comment out the new category query, go back and delete old categories and start fresh. Not sure if this was the correct way to do this but it worked. 
 ![Categories Error](assets/readme_images/category_bug.JPG)
-
-### Known Bugs
-* When you fill out the contact form, it shows in the terminal locally but I ran out of time to add EmailJS and get the alert messages to show. Right now it redirects the user
-back to the main page but it is a poor user experience as they are unsure if there form went through or not. I will fix this for sure once I am done course. 
-
 
 # Deployment
 

@@ -29,7 +29,7 @@
                                 {{ form.as_p }}
                                 <button class="btn btn-dark">Update</button>
 
-                                <button class="btn btn-dark"><a href="{% url 'delete_post' post.slug  %}">Delete Post</a></button>
+                                <a class="btn btn-danger" href="{% url 'delete_post' post.slug  %}">Delete Post</a>
                             </form>
                         </div>
                         <div class="row"></div>
